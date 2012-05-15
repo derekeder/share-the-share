@@ -1,9 +1,15 @@
-- content_for :javascripts do
-  = include_javascript :mustache
-  = include_javascript "http://maps.google.com/maps/api/js?sensor=false" 
-  = include_javascript :fusion_library
-
-.row-fluid
-  #filters.span3
-
-  #template_map.span9
+.hero-unit
+  %h1 Share the Share
+  %p.tagline Some tagline
+    
+/ Example row of columns
+.row
+  .span4
+    %h2 Thing 1!
+  .span4
+    %h2 Thing 2!
+  .span4
+    %h2 Thing 3!
+%hr
+  %footer
+    %p © Company 2012

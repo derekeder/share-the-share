@@ -12,6 +12,13 @@ module ShareTheShare
       register Sinatra::Reloader
     end
 
+    configure do   
+      yaml = YAML.load_file("config/config.yaml")[settings.environment.to_s]
+      yaml.each_pair do |key, value|
+        set(key.to_sym, value)
+      end
+    end
+
     register Sinatra::Initializers
     register Sinatra::R18n
 
@@ -23,6 +30,23 @@ module ShareTheShare
     use Rack::Session::Cookie
 
     helpers ShareTheShare::HtmlHelpers
+
+    get '/send' do
+    Pony.mail(:to=>"derek.eder@gmail.com", 
+              :from => 'share.the.share.info.@gmail.com', 
+              :subject=> "test message!",
+              :body => "Thanks for sharing your share!",
+              :via => :smtp, :smtp => {
+                      :host       => 'smtp.gmail.com',
+                      :port       => '587',
+                      :user       => settings.gmail_account.to_s,
+                      :password   => settings.gmail_password.to_s,
+                      :auth       => :plain,
+                      :domain     => "sharetheshare.org"
+              }
+        )
+        "Email sent!"
+    end
 
     get "/" do
       response.headers["X-Frame-Options"] = 'GOFORIT'

@@ -36,7 +36,16 @@ module ShareTheShare
     helpers ShareTheShare::HtmlHelpers
 
     get '/send' do
-    Pony.mail(:to=>"derek.eder@gmail.com", 
+      
+      begin
+        gmail_account = settings.gmail_account.to_s
+        gmail_password = settings.gmail_password.to_s
+      rescue
+        gmail_account = ENV['gmail_account']
+        gmail_password = ENV['gmail_password'] 
+      end
+
+      Pony.mail(:to=>"derek.eder@gmail.com", 
               :from => 'share.the.share.info.@gmail.com', 
               :subject=> "test message!",
               :body => "Thanks for sharing your share!",

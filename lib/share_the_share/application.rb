@@ -52,8 +52,8 @@ module ShareTheShare
               :via => :smtp, :smtp => {
                       :host       => 'smtp.gmail.com',
                       :port       => '587',
-                      :user       => settings.gmail_account.to_s,
-                      :password   => settings.gmail_password.to_s,
+                      :user       => gmail_account,
+                      :password   => gmail_password,
                       :auth       => :plain,
                       :domain     => "sharetheshare.org"
               }

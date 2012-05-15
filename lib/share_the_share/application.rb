@@ -3,7 +3,7 @@ require "sinatra/reloader"
 require "sinatra-initializers"
 require "sinatra/r18n"
 
-module OpenCity
+module ShareTheShare
   class Application < Sinatra::Base
     enable :logging, :sessions
     enable :dump_errors, :show_exceptions if development?
@@ -22,7 +22,7 @@ module OpenCity
     use Rack::Logger
     use Rack::Session::Cookie
 
-    helpers OpenCity::HtmlHelpers
+    helpers ShareTheShare::HtmlHelpers
 
     get "/" do
       response.headers["X-Frame-Options"] = 'GOFORIT'

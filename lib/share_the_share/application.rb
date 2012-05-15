@@ -13,9 +13,13 @@ module ShareTheShare
     end
 
     configure do   
-      yaml = YAML.load_file("config/config.yaml")[settings.environment.to_s]
-      yaml.each_pair do |key, value|
-        set(key.to_sym, value)
+      begin
+        yaml = YAML.load_file("config/config.yaml")[settings.environment.to_s]
+        yaml.each_pair do |key, value|
+          set(key.to_sym, value)
+        end
+      rescue Errno::ENOENT
+        puts "config file not found"
       end
     end
 

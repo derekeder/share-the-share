@@ -1,15 +1,56 @@
-.hero-unit
-  %h1 Share the Share
-  %p.tagline Some tagline
-    
-/ Example row of columns
 .row
   .span4
-    %h2 Thing 1!
-  .span4
-    %h2 Thing 2!
-  .span4
-    %h2 Thing 3!
-%hr
-  %footer
-    %p © Company 2012
+    %h2 
+      Feed Chicago's hungry with your extra CSA boxes
+    %p
+      Share my share is an easy way to donate your CSA share. Tell us when you can’t make it to the market, and you 
+      will give your box with a local food pantry or shelter. All you need to do is give us your info below.
+    %p
+      Right now, Share my Share is only for the Logan Square Farmer’s Market.  If you want us to come to your market, 
+      get in touch (e-mail link)
+    %p
+      If you have any questions, you can always reach us by email:
+      = link_to "share.the.share.info.@gmail.com", "mailto:share.the.share.info.@gmail.com"
+  
+  .span1
+    %p &nbsp;
+  
+  .span7
+    %h3 Fill out your info. We'll arrange the pickup
+
+    %form.well{:action => "/send", :method => "POST"}
+      %label Select your CSA/farm
+      %select.span4{:name => "post[csa]"}
+        %option{:value => "Radical Root"} Radical Root
+        
+      %label Select your Farmer's market
+      %select.span4{:name => "post[farmersMarket]"}
+        %option{:value => "Logan Square Farmer's Market"} Logan Square Farmer's Market
+      
+      %label Pick-up date
+      %input.span2{:name => "post[pickUpDate]", :type => "text"}
+      
+      %label Your name
+      %input.span4{:name => "post[name]", :placeholder => "Name of CSA subscriber", :type => "text"}
+      
+      %label Your email
+      %input.span4{:name => "post[email]", :placeholder => "Email of CSA subscriber", :type => "text"}
+      %span.help-block We will never spam you or give your email to others.
+          
+      %button.btn.btn-danger.btn-large{:type => "submit"} 
+        Donate my CSA box
+        
+
+%hr      
+.row
+  .span12
+    %h2 Where does my CSA box go?
+    %p
+      Some text
+
+%hr   
+.row
+  .span12
+    %h2 Thank you
+    %p
+      Some text

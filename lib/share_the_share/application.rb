@@ -35,30 +35,25 @@ module ShareTheShare
 
     helpers ShareTheShare::HtmlHelpers
 
-    get '/send' do
+    post '/send' do
       
-      begin
-        gmail_account = settings.gmail_account.to_s
-        gmail_password = settings.gmail_password.to_s
-      rescue
-        gmail_account = ENV['gmail_account']
-        gmail_password = ENV['gmail_password'] 
+      #get form variables
+      post = params[:post]
+      name = post[:name]
+      body << "Thanks for sharing your share!\n\n"
+      body << "Your info:\n"
+      
+      post.each_pair do |k,v|
+        body << "#{k}: #{v}\n"
       end
-
-      Pony.mail(:to=>"derek.eder@gmail.com", 
-              :from => 'share.the.share.info.@gmail.com', 
-              :subject=> "test message!",
-              :body => "Thanks for sharing your share!",
-              :via => :smtp, :smtp => {
-                      :host       => 'smtp.gmail.com',
-                      :port       => '587',
-                      :user       => gmail_account,
-                      :password   => gmail_password,
-                      :auth       => :plain,
-                      :domain     => "sharetheshare.org"
-              }
-        )
-        "Email sent!"
+      
+      #send email to submitter
+      send_email "derek.eder@gmail.com", "share.the.share.info.@gmail.com", "Thanks for sharing your share!", body
+      
+      #send notify email to admin
+      send_email "derek.eder@gmail.com", "share.the.share.info.@gmail.com", "#{name} has shared their share", body
+      
+      haml :thanks
     end
 
     get "/" do

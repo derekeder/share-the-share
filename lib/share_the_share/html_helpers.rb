@@ -64,5 +64,31 @@ module ShareTheShare
 
       element
     end
+    
+    def send_email to, from, subject, body
+      begin
+        gmail_account = settings.gmail_account.to_s
+        gmail_password = settings.gmail_password.to_s
+      rescue
+        gmail_account = ENV['gmail_account']
+        gmail_password = ENV['gmail_password'] 
+      end
+      
+      Pony.mail(:to => to, 
+              :from => from, 
+              :subject=> subject,
+              :body => body,
+              :via => :smtp, :smtp => {
+                      :host       => 'smtp.gmail.com',
+                      :port       => '587',
+                      :user       => gmail_account,
+                      :password   => gmail_password,
+                      :auth       => :plain,
+                      :domain     => "sharetheshare.org"
+              }
+        )
+    
+    end
+    
   end
 end

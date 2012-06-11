@@ -48,10 +48,10 @@ module ShareTheShare
       end
       
       #send email to submitter
-      send_email "derek.eder@gmail.com", "share.the.share.info.@gmail.com", "Thanks for sharing your share!", body
+      send_email "derek.eder@gmail.com,share.the.share.info.@gmail.com", "share.the.share.info.@gmail.com", "Thanks for sharing your share!", body
       
       #send notify email to admin
-      send_email "derek.eder@gmail.com", "share.the.share.info.@gmail.com", "#{name} has shared their share", body
+      send_email "derek.eder@gmail.com,share.the.share.info.@gmail.com", "share.the.share.info.@gmail.com", "#{name} has shared their share", body
       
       haml :thanks
     end

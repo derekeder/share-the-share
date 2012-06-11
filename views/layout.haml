@@ -10,6 +10,8 @@
             
     / Styles
     %link{:href => "/stylesheets/bootstrap.css", :rel => "stylesheet"}
+    %link{:href => "/stylesheets/custom.css", :rel => "stylesheet"}
+    %link{:href => "/stylesheets/jquery-ui.css", :rel => "stylesheet"}
     / HTML5 shim, for IE6-8 support of HTML5 elements
     /[if lt IE 9]
     %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
@@ -18,10 +20,11 @@
     %link{:href => "favicon.ico", :rel => "shortcut icon"}
     
   %body
+    .header-logo
+      = image_tag "header.png"
+      = link_to "#{image_tag("logo.png")}", "/", :id => "sms-logo"
+    
     .container
-      .header
-      = link_to "#{image_tag("logo.png")}", "/"
-      
       = yield
       
       %hr
@@ -31,6 +34,8 @@
     
     %script{:src => "/javascripts/jquery.js"}
     %script{:src => "/javascripts/bootstrap.js"}
+    %script{:src => "/javascripts/jquery-ui.min.js"}
+    %script{:src => "/javascripts/application.js"}
     
     - if production?
       %script{:src => "/javascripts/analytics_lib.js"}

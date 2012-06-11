@@ -27,13 +27,14 @@
       %select.span4{:name => "post[farmersMarket]"}
         %option{:value => "Logan Square Farmer's Market"} Logan Square Farmer's Market
       
-      %label 
-        Pick-up date
-      %input.span2.clonedInput{:id => "pickUpDate1", :name => "post[pickUpDate]", :type => "text"}
-      %br
-      %a{:href => "#", :id => "addDate"} Add another date
-      |
-      %a{:href => "#", :id => "delDate"} remove date
+      .dateElement
+        %label 
+          Pick-up date
+        %input.span2.clonedInput{:id => "pickUpDates", :name => "post[pickUpDate]", :type => "text"}
+        %br
+      /%a{:href => "#", :id => "addDate"} Add another date
+      /|
+      /%a{:href => "#", :id => "delDate"} remove date
       
       %label Your name
       %input.span4{:name => "post[name]", :placeholder => "Name of CSA subscriber", :type => "text"}
@@ -45,13 +46,12 @@
       %button.btn.btn-danger.btn-large{:type => "submit"} 
         Donate my CSA box
         
-
 %hr      
 .row
   .span12
     %h2 Where does my CSA box go?
 .row
-  .span5
+  .span6
     %p
       We have coordinated a partnership with The Greater Chicago Food Depository, a nonprofit food distribution and training center providing food for hungry people while striving to end hunger in our community. The Food Depository distributes donated and purchased food through a network of 650 pantries, soup kitchens and shelters to 678,000 adults and children in Cook County every year. Visit their website to learn more.
     

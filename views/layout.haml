@@ -20,7 +20,8 @@
     %link{:href => "favicon.ico", :rel => "shortcut icon"}
     
   %body
-    = link_to "#{image_tag("logo-wide.png")}", "/"
+    %a{:href => "/", :title => "Home"}
+      %img#header-logo{:src => "images/logo-wide.png", :alt => "Share my Share", :title => "Share my Share"}
     
     .container
       = yield

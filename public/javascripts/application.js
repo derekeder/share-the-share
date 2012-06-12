@@ -1,5 +1,5 @@
 $(function() {
-  $("#pickUpDates").datepicker();
+  $("#pickUpDate1").datepicker();
   
   $('#addDate').click(function() {
       var num     = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
@@ -10,12 +10,13 @@ $(function() {
       
       // create the new element via clone(), and manipulate it's ID using newNum value
       var newElem = $('#dateElement' + num).clone().attr('id', 'dateElement' + newNum);
-
+      
       // manipulate the name/id values of the input inside the new element
-      //newElem.children(':first').attr('id', 'pickUpDate' + newNum).attr('pickUpDate', 'pickUpDate' + newNum);
+      newElem.children('input').attr('id', 'pickUpDate' + newNum).attr('name', 'post[pickUpDate' + newNum + ']').removeClass('hasDatepicker').val('');
 
       // insert the new element after the last "duplicatable" input field
       $('#dateElement' + num).after(newElem);
+      $("#pickUpDate" + newNum).datepicker();
  
       return false;
   });

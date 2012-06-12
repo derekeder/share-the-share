@@ -27,14 +27,19 @@
       %select.span4{:name => "post[farmersMarket]"}
         %option{:value => "Logan Square Farmer's Market"} Logan Square Farmer's Market
       
-      .dateElement
-        %label 
-          Pick-up date
-        %input.span2.clonedInput{:id => "pickUpDates", :name => "post[pickUpDate]", :type => "text"}
+      %label 
+        Pick-up date
+      #dateElement1.clonedInput  
+        %input.span2#pickUpDate1{:name => "post[pickUpDate1]", :type => "text"}
         %br
-      /%a{:href => "#", :id => "addDate"} Add another date
-      /|
-      /%a{:href => "#", :id => "delDate"} remove date
+      %p.help-block
+        %a{:href => "#", :id => "addDate"} 
+          %i.icon-plus
+          add another date
+        |
+        %a{:href => "#", :id => "delDate"} 
+          %i.icon-minus
+          remove date
       
       %label Your name
       %input.span4{:name => "post[name]", :placeholder => "Name of CSA subscriber", :type => "text"}

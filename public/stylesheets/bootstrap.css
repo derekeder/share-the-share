@@ -384,7 +384,7 @@ h1 small {
 }
 h2 {
   font-size: 24px;
-  line-height: 36px;
+  line-height: 30px;
 }
 h2 small {
   font-size: 18px;
@@ -1310,7 +1310,8 @@ select:focus:required:invalid:focus {
 }
 .help-block,
 .help-inline {
-  color: #555555;
+  color: #453105;
+  font-size: 0.9em;
 }
 .help-block {
   display: block;

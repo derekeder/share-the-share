@@ -39,8 +39,9 @@ module ShareTheShare
       
       #get form variables
       post = params[:post]
-      name = post[:name]
+      name = post[:Name]
       userbody = "Thanks for sharing your share!\n\n"
+      userbody << "We have received your information and we'll make sure that your CSA share gets to a hungry family. If you have any questions, feel free to contact us at share.the.share.info@gmail.com.\n\n"
       userbody << "Your info:\n"
       
       adminbody = "Submitter details:\n"
@@ -50,11 +51,13 @@ module ShareTheShare
         adminbody << "#{k}: #{v}\n"
       end
       
+      userbody << "\nVisit us at http://sharemyshare.org to share your share again!"
+      
       #send email to submitter
-      send_email post[:email], "share.the.share.info.@gmail.com", "Thanks for sharing your share!", userbody
+      send_email post[:Email], "share.the.share.info@gmail.com", "Thanks for sharing your share!", userbody
       
       #send notify email to admin
-      send_email "share.the.share.info.@gmail.com", "share.the.share.info.@gmail.com", "#{name} has shared their share", adminbody
+      send_email "share.the.share.info@gmail.com", "share.the.share.info@gmail.com", "#{name} has shared their share", adminbody
       
       haml :thanks
     end

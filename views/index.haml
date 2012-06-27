@@ -7,10 +7,11 @@
       will give your box with a local food pantry or shelter. All you need to do is give us your info below.
     %p
       Right now, Share my Share is only for the Logan Square Farmer’s Market.  If you want us to come to your market, 
-      get in touch (e-mail link)
+      get in touch at
+      = link_to "share.the.share.info@gmail.com", "mailto:share.the.share.info@gmail.com"
     %p
       If you have any questions, you can always reach us by email:
-      = link_to "share.the.share.info.@gmail.com", "mailto:share.the.share.info.@gmail.com"
+      = link_to "share.the.share.info@gmail.com", "mailto:share.the.share.info@gmail.com"
   
   .span1
     %p &nbsp;
@@ -20,17 +21,22 @@
 
     %form.well{:action => "/send", :method => "POST"}
       %label Select your CSA/farm
-      %select.span4{:name => "post[csa]"}
+      %select.span4{:name => "post[CSA]"}
+        %option{:value => ""} -- Select --
+        %option{:value => "The Gentleman Farmer"} The Gentleman Farmer
+        %option{:value => "Granor Farms"}Granor Farms
+        %option{:value => "Iron Creek Farms"} Iron Creek Farms
+        %option{:value => "Montalbano Farms"} Montalbano Farms
         %option{:value => "Radical Root"} Radical Root
-        
+
       %label Select your Farmer's market
-      %select.span4{:name => "post[farmersMarket]"}
+      %select.span4{:name => "post[Farmers Market]"}
         %option{:value => "Logan Square Farmer's Market"} Logan Square Farmer's Market
       
       %label 
         Pick-up date
       #dateElement1.clonedInput  
-        %input.span2#pickUpDate1{:name => "post[pickUpDate1]", :type => "text"}
+        %input.span2#pickUpDate1{:name => "post[Pick Up Date 1]", :type => "text"}
         %br
       %p.help-block
         %a{:href => "#", :id => "addDate"} 
@@ -42,10 +48,10 @@
           remove date
       
       %label Your name
-      %input.span4{:name => "post[name]", :placeholder => "Name of CSA subscriber", :type => "text"}
+      %input.span4{:name => "post[Name]", :placeholder => "Name of CSA subscriber", :type => "text"}
       
       %label Your email
-      %input.span4{:name => "post[email]", :placeholder => "Email of CSA subscriber", :type => "text"}
+      %input.span4{:name => "post[Email]", :placeholder => "Email of CSA subscriber", :type => "text"}
       %span.help-block We will never spam you or give your email to others.
           
       %button.btn.btn-danger.btn-large{:type => "submit"} 
@@ -58,7 +64,7 @@
 .row
   .span7
     %p
-      We have coordinated a partnership with The Greater Chicago Food Depository, a nonprofit food distribution and training center providing food for hungry people while striving to end hunger in our community. The Food Depository distributes donated and purchased food through a network of 650 pantries, soup kitchens and shelters to 678,000 adults and children in Cook County every year. Visit their website to learn more.
+      We have partnered with <a href='http://www.chicagosfoodbank.org'>The Greater Chicago Food Depository</a>, a nonprofit food distribution and training center providing food for hungry people throughout the greater Chicago area, and <a href='http://www.stlukesls.org/#/community-health/elijahs-pantry'>Elijah's Pantry</a>, a food pantry serving over 600 families in Logan Square and Avondale.
 
   .span1
     %p &nbsp;    
@@ -69,6 +75,11 @@
 %hr   
 .row
   .span12
-    %h2 Thank you
+    %h2 Thank you to our partners and collaborators
     %p
-      Some text
+      We'd like to thank all of our partners, farmers and collaborators that made this site possible. They are, in no particular order:
+    %ul
+      %li Our parter farmers: Radical Root, Montalbano Farms, Granor Farms, The Gentleman Farmer and Iron Creek Farms
+      %li <a href='http://www.lsna.net/'>The Logan Square Neighborhood Association</a>
+      %li <a href='http://www.logansquarefarmersmarket.org/'>The Logan Square Farmers Market</a>
+      %li <a href='http://www.chicagosfoodbank.org'>The Greater Chicago Food Depository</a>

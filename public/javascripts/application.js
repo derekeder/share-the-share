@@ -12,7 +12,7 @@ $(function() {
       var newElem = $('#dateElement' + num).clone().attr('id', 'dateElement' + newNum);
       
       // manipulate the name/id values of the input inside the new element
-      newElem.children('input').attr('id', 'pickUpDate' + newNum).attr('name', 'post[pickUpDate' + newNum + ']').removeClass('hasDatepicker').val('');
+      newElem.children('input').attr('id', 'pickUpDate' + newNum).attr('name', 'post[Pick Up Date ' + newNum + ']').removeClass('hasDatepicker').val('');
 
       // insert the new element after the last "duplicatable" input field
       $('#dateElement' + num).after(newElem);

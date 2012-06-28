@@ -31,4 +31,30 @@ $(function() {
 
       return false;
   });
+  
+  //form validation functions
+  $("#CSA").validate({
+      expression: "if(VAL != '') return true; else return false;",
+      message: "Select your CSA/farm"
+  });
+  
+  $("#FarmersMarket").validate({
+      expression: "if(VAL != '') return true; else return false;",
+      message: "Select your Farmer's Market"
+  });
+  
+  $("#pickUpDate1").validate({
+      expression: "if(VAL != '') return true; else return false;",
+      message: "Enter at least one pick up date"
+  });
+  
+  $("#Name").validate({
+      expression: "if(VAL != '') return true; else return false;",
+      message: "Enter your name"
+  });
+  
+  $("#Email").validate({
+      expression: "if (VAL.match(/^[^\\W][a-zA-Z0-9\\_\\-\\.]+([a-zA-Z0-9\\_\\-\\.]+)*\\@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$/)) return true; else return false;",
+      message: "Enter a valid email"
+  });
 });

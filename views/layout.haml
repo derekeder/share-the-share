@@ -9,12 +9,13 @@
     %meta{:content => "", :name => "author"}
             
     / Styles
-    %link{:href => "/stylesheets/bootstrap.css", :rel => "stylesheet"}
-    %link{:href => "/stylesheets/custom.css", :rel => "stylesheet"}
-    %link{:href => "/stylesheets/jquery-ui.css", :rel => "stylesheet"}
+    = include_stylesheet :bootstrap
+    = include_stylesheet :custom
+    = include_stylesheet :"jquery-ui"
+
     / HTML5 shim, for IE6-8 support of HTML5 elements
     /[if lt IE 9]
-    %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+    = include_javascript :"http://html5shim.googlecode.com/svn/trunk/html5.js"
     
     / fav and touch icons
     %link{:href => "favicon.ico", :rel => "shortcut icon"}
@@ -29,14 +30,13 @@
       %hr
       .footer
         %p
-          A site by Megan Kelly, Forest Gregg, Aya O'Connor and Derek Eder &copy; 2012
+          A site by Megan Kelly, Forest Gregg, <a href='http://ayaoconnor.com'>Aya O'Connor</a> and <a href='http://derekeder.com'>Derek Eder</a> &copy; 2012
     
-    %script{:src => "/javascripts/jquery.js"}
-    %script{:src => "/javascripts/bootstrap.js"}
-    %script{:src => "/javascripts/jquery-ui.min.js"}
-    %script{:src => "/javascripts/application.js"}
+    = include_javascript :jquery
+    = include_javascript :bootstrap
+    = include_javascript :"jquery-ui.min"
+    = include_javascript :application
+    = include_javascript :"jquery.validation"
     
     - if production?
-      %script{:src => "/javascripts/analytics_lib.js"}
-
-    
+      = include_javascript :analytics_lib

@@ -20,24 +20,27 @@
     %h3 Fill out your info. We'll arrange the pickup
 
     %form.well{:action => "/send", :method => "POST"}
-      %label Select your CSA/farm
-      %select.span4{:name => "post[CSA]"}
-        %option{:value => ""} -- Select --
-        %option{:value => "The Gentleman Farmer"} The Gentleman Farmer
-        %option{:value => "Granor Farms"}Granor Farms
-        %option{:value => "Iron Creek Farms"} Iron Creek Farms
-        %option{:value => "Montalbano Farms"} Montalbano Farms
-        %option{:value => "Radical Root"} Radical Root
+      .control-group
+        %label Select your CSA/farm
+        %select.span4{:id => "CSA", :name => "post[CSA]"}
+          %option{:value => ""} -- Select --
+          %option{:value => "The Gentleman Farmer"} The Gentleman Farmer
+          %option{:value => "Granor Farms"}Granor Farms
+          %option{:value => "Iron Creek Farms"} Iron Creek Farms
+          %option{:value => "Montalbano Farms"} Montalbano Farms
+          %option{:value => "Radical Root"} Radical Root
 
-      %label Select your Farmer's market
-      %select.span4{:name => "post[Farmers Market]"}
-        %option{:value => "Logan Square Farmer's Market"} Logan Square Farmer's Market
+      .control-group
+        %label Select your Farmer's market
+        %select.span4{:id => "FarmersMarket", :name => "post[Farmers Market]"}
+          %option{:value => "Logan Square Farmer's Market"} Logan Square Farmer's Market
       
-      %label 
-        Pick-up date
-      #dateElement1.clonedInput  
-        %input.span2#pickUpDate1{:name => "post[Pick Up Date 1]", :type => "text"}
-        %br
+      .control-group
+        %label 
+          Pick-up date
+        #dateElement1.clonedInput  
+          %input.span2#pickUpDate1{:name => "post[Pick Up Date 1]", :type => "text"}
+          %br
       %p.help-block
         %a{:href => "#", :id => "addDate"} 
           %i.icon-plus
@@ -47,11 +50,13 @@
           %i.icon-minus
           remove date
       
-      %label Your name
-      %input.span4{:name => "post[Name]", :placeholder => "Name of CSA subscriber", :type => "text"}
+      .control-group
+        %label Your name
+        %input.span4{:id => "Name", :name => "post[Name]", :placeholder => "Name of CSA subscriber", :type => "text"}
       
-      %label Your email
-      %input.span4{:name => "post[Email]", :placeholder => "Email of CSA subscriber", :type => "text"}
+      .control-group
+        %label Your email
+        %input.span4{:id => "Email", :name => "post[Email]", :placeholder => "Email of CSA subscriber", :type => "text"}
       %span.help-block We will never spam you or give your email to others.
           
       %button.btn.btn-danger.btn-large{:type => "submit"} 

@@ -43,10 +43,12 @@ $(function() {
       message: "Select your Farmer's Market"
   });
   
-  $("#pickUpDate1").validate({
+  /*
+$("#pickUpDate1").validate({
       expression: "if(VAL != '') return true; else return false;",
       message: "Enter at least one pick up date"
   });
+*/
   
   $("#Name").validate({
       expression: "if(VAL != '') return true; else return false;",

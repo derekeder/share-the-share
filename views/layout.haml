@@ -35,8 +35,8 @@
     = include_javascript :jquery
     = include_javascript :bootstrap
     = include_javascript :"jquery-ui.min"
-    = include_javascript :application
     = include_javascript :"jquery.validation"
+    %script{:type => "text/javascript", :src => "/javascripts/application.js?3"}
     
     - if production?
       = include_javascript :analytics_lib

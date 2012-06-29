@@ -37,7 +37,7 @@ module ShareTheShare
 
     post '/send' do
       
-      if (params[:post] != '' && params[:post][:name] != '' && params[:post][:email])
+      if (params[:post] != '' && params[:post][:name] != '' && params[:post][:email] != '')
         #get form variables
         post = params[:post]
         name = post[:Name]

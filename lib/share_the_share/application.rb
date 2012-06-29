@@ -42,7 +42,7 @@ module ShareTheShare
         post = params[:post]
         name = post[:Name]
         userbody = "Thanks for sharing your share!\n\n"
-        userbody << "We have received your information and we'll make sure that your CSA share gets to a hungry family. If you have any questions, feel free to contact us at share.the.share.info@gmail.com.\n\n"
+        userbody << "We have received your information and we'll make sure a family in need receives your share. If you have any questions or your information below is incorrect, feel free to contact us at share.the.share.info@gmail.com.\n\n"
         userbody << "Your info:\n"
         
         adminbody = "Submitter details:\n"

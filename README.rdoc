@@ -1,6 +1,6 @@
-= Share the Share
+= Share my Share
 
-Donate your CSA share to charity 
+Share my Share is an easy way to donate your CSA share. Tell us when you can’t make it to the market, and we will arrange for a local food pantry to pick up your box. 
 
 == Installation
 
@@ -25,7 +25,9 @@ Donate your CSA share to charity
 == Team
 
 * Derek Eder mailto:derek.eder@gmail.com
-
+* Forest Gregg
+* Megan Kelly
+* Aya O'Connor
 
 == More detail needed?
 
